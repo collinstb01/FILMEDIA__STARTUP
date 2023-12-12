@@ -31,54 +31,7 @@ const profile = () => {
   });
 
   const [profile, setProfile] = useState();
-  // console.log(profile?.metadata?.displayName)
 
-  useEffect(() => {
-    // const getProfile = async () => {
-    //   const user: any = await _getUserFromLocalStorage();
-    //   console.log(user);
-    //   const profileById: any = await lensClient.profile.fetch({
-    //     forHandle: `test/${user.name}`,
-    //   });
-    //   console.log("profileById", profileById?.followModule); // Add this line
-    //   console.log("profile", profileById?.handle?.ownedBy);
-    //   setProfile(profileById);
-    //   setHandle(profileById?.handle?.localName);
-    //   setFollower((_) => ({
-    //     followers: profileById?.stats.followers,
-    //     following: profileById?.stats.followers,
-    //   }));
-    // };
-    const getUserBalance = async () => {
-      const walletAddress: string = await _getWalletAddress();
-
-      setwalletAddress(walletAddress);
-      const balance = await _getUserBalance({ userAddress: walletAddress });
-
-      setBalance(balance.toString());
-    };
-    const getNFTByAddress = async () => {
-      // const nfts: any = await _getAWalletNFT();
-      // setBalance(balance.toString());
-    };
-
-    const isAnArtist = async () => {
-      const walletAddress: string = await _getWalletAddress();
-
-      const isArtistBool = await _isWalletAnArtist({
-        artistAddress: walletAddress,
-      });
-      setIsArtist(isArtistBool);
-    };
-    // isAnArtist();
-    // getNFTByAddress();
-    // getProfile();
-    // getUserBalance();
-  }, []);
-
-  const uploadContent = () => {
-    router.push("/upload");
-  };
   return (
     <ScrollView
       style={{ flex: 1, minHeight: "100%", marginBottom: 789 }}
@@ -116,7 +69,7 @@ const profile = () => {
       >
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 40, fontWeight: "bold", color: "#fff" }}>
-            {`@${handle}`}
+           Davido
           </Text>
           <Text style={{ fontSize: 16, fontWeight: "bold", color: "#A8A8A8" }}>
             {`Welcome Back`}
@@ -124,7 +77,6 @@ const profile = () => {
         </View>
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
           <TouchableOpacity
-            onPress={() => uploadContent()}
             style={{
               marginTop: 29,
               paddingHorizontal: 24,
@@ -176,26 +128,6 @@ const profile = () => {
             style={{ color: "white" }}
           >{`${follower.followers} FOLLOWERS`}</Text>
         </View>
-        <TouchableOpacity
-          style={{
-            marginTop: 29,
-            paddingHorizontal: 24,
-            backgroundColor: "#4169E1",
-            paddingVertical: 8,
-            alignItems: "center",
-            justifyContent: "center",
-            // width: "40%",
-            // borderRadius: 40,
-          }}
-          className="mx-auto"
-        >
-          <Text style={{ fontSize: 12, fontWeight: "bold", color: "#fff" }}>
-            {`YOUR BALANCE ${walletAddress.slice(0, 4)}...${walletAddress.slice(
-              -4
-            )} : ${ethers.formatEther(balance)} ETH`}
-          </Text>
-        </TouchableOpacity>
-
         <View style={{ paddingTop: 9 }}>
           <NFTs />
         </View>

@@ -8,16 +8,10 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import React from "react";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
+import { Text, View, useColorScheme } from "react-native";
 import { AuthProvider } from "../context/AuthContext";
-import "@walletconnect/react-native-compat";
-import { WagmiConfig } from "wagmi";
-import { mainnet, polygon, arbitrum } from "viem/chains";
-import {
-  createWeb3Modal,
-  defaultWagmiConfig,
-  Web3Modal,
-} from "@web3modal/wagmi-react-native";
+import { Portal, PortalProvider } from "@gorhom/portal";
+import BottomSheet, { BottomSheetMethods } from "@devvie/bottom-sheet";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -60,20 +54,26 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <AuthProvider>
-      <Stack
-        initialRouteName="index"
-        screenOptions={{
-          contentStyle: {
-            backgroundColor: "#001F3F",
-          },
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="index" />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
-    </AuthProvider>
+    <>
+      <PortalProvider>
+        <AuthProvider>
+          <Stack
+            initialRouteName="index"
+            screenOptions={{
+              contentStyle: {
+                backgroundColor: "#001F3F",
+              },
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="index" />
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </AuthProvider>
+  
+      </PortalProvider>
+
+    </>
   );
 }

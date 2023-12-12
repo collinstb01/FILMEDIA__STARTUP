@@ -152,29 +152,7 @@ export const options: Option[] = [
   },
 ];
 
-export const pagesData = [
-  {
-    id: 1,
-    backgroundColor: "#001F3F",
-    image: image1,
-    title: "Welcome to Filmedia, where Social Content and blockchain unite!",
-    subtitle: "A vibrant space where music, videos, and NFTs collide!. Social features, exclusive events, and a groundbreaking wallet for your security.",
-  },
-  {
-    id: 2,
-    backgroundColor: "#001F3F",
-    image: image2,
-    title: "Dive into the world of SocialFI in our All-in-One Hub",
-    subtitle: "Discover new music and share your favorites.Watch exclusive videos and connect with creators.Subscribe for premium content and support artists Individually.",
-  },
-  {
-    id: 3,
-    backgroundColor: "#001F3F",
-    image: image3,
-    title: "Secure Wallet for Your Journey",
-    subtitle: "Your inbuilt wallet ensures secure transactions. Purchase subscriptions, tip artists, and collect NFTs confidently.Your digital assets, your control.",
-  },
-];
+
 
 export const truncate = (text: string, count = 35) =>
   text?.length > count ? `${text.substring(0, count)}...` : text

@@ -9,7 +9,7 @@ import {
   Animated,
 } from "react-native";
 // import Animated from 'react-native-reanimated';
-import { pagesData } from "../utils";
+// import { pagesData } from "../utils";
 
 type Props = {
   backgroundColor: string;
@@ -40,7 +40,7 @@ const Slides = ({
       {/** indicators */}
 
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        {pagesData.map((_, i) => {
+        {/* {pagesData.map((_, i) => {
           const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
           const color = scrollX.interpolate({
             inputRange,
@@ -65,7 +65,7 @@ const Slides = ({
               }}
             />
           );
-        })}
+        })} */}
       </View>
 
       <View className="px-[16px] space-y-[16px] mt-[43px]">

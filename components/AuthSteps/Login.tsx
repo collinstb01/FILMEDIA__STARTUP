@@ -24,13 +24,7 @@ const Login = ({ setCurrentScreen }: Props) => {
   const { signin, createAnEOA } = useAuth();
 
   const handleSubmit = async () => {
-    if (!password) return Alert.alert("fil up data");
-
-    if (lens == true) {
-      await createAnEOA(name, password, lens, privateKey);
-    } else {
-      await signin(email, password);
-    }
+ 
   };
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -46,24 +40,6 @@ const Login = ({ setCurrentScreen }: Props) => {
 
         {/** form section */}
         <View className="">
-          {lens && (
-            <>
-              <InputField
-                label="Your Lens Handle"
-                value={name}
-                placeholder="Enter Your Lens Handle"
-                onChange={setName}
-                name=""
-              />
-              <InputField
-                label="Private Key"
-                value={privateKey}
-                placeholder="Enter private key"
-                onChange={setPrivateKey}
-                name=""
-              />
-            </>
-          )}
           <InputField
             label="Password"
             value={password}
@@ -87,12 +63,6 @@ const Login = ({ setCurrentScreen }: Props) => {
               className="text-[#4169E1]"
             >
               Sign up{" "}
-            </Text>
-            <Text
-              onPress={() => setLoginWithLens((e) => !e)}
-              className="text-[#4169E1]"
-            >
-              {lens ? "Or Login" : "Or Login with Lens"}
             </Text>
           </Text>
         </View>

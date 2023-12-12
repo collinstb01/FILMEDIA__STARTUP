@@ -10,27 +10,42 @@ import {
   StatusBar,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import * as SecureStore from "expo-secure-store";
-import { pagesData } from "../utils";
+// import { pagesData } from "../utils";
 import Slides from "../components/Slides";
 import { router } from "expo-router";
+import { image1, image2, image3 } from "../assets/images";
 
 const { width, height } = Dimensions.get("window");
 
 const OnboardingPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [isFirstLaunch, setIsFirstLaunch] = React.useState(false);
 
-  // useEffect(() => {
-  //   SecureStore.getItemAsync('alreadyLaunched').then(value => {
-  //     if (value == null) {
-  //       SecureStore.setItemAsync('alreadyLaunched', 'true'); // No need to wait for 'setItem' to finish, this is a ~hack
-  //       setIsFirstLaunch(true);
-  //     } else {
-  //       setIsFirstLaunch(false);
-  //     }
-  //   }); // Add some error handling, also you can simply do setIsFirstLaunch(null)
-  // }, []);
+  const pagesData = [
+    {
+      id: 1,
+      backgroundColor: "#001F3F",
+      image: image1,
+      title: "Welcome to Filmedia, where Social Content and blockchain unite!",
+      subtitle:
+        "A vibrant space where music, videos, and NFTs collide!. Social features, exclusive events, and a groundbreaking wallet for your security.",
+    },
+    {
+      id: 2,
+      backgroundColor: "#001F3F",
+      image: image2,
+      title: "Dive into the world of SocialFI in our All-in-One Hub",
+      subtitle:
+        "Discover new music and share your favorites.Watch exclusive videos and connect with creators.Subscribe for premium content and support artists Individually.",
+    },
+    {
+      id: 3,
+      backgroundColor: "#001F3F",
+      image: image3,
+      title: "Secure Wallet for Your Journey",
+      subtitle:
+        "Your inbuilt wallet ensures secure transactions. Purchase subscriptions, tip artists, and collect NFTs confidently.Your digital assets, your control.",
+    },
+  ];
 
   const scrollX = new Animated.Value(0);
 
@@ -71,7 +86,33 @@ const OnboardingPage = () => {
       <StatusBar barStyle="light-content" />
       {/* <FlatList
         ref={flatListRef}
-        data={pagesData}
+        data={[
+          {
+            id: 1,
+            backgroundColor: "#001F3F",
+            image: image1,
+            title:
+              "Welcome to Filmedia, where Social Content and blockchain unite!",
+            subtitle:
+              "A vibrant space where music, videos, and NFTs collide!. Social features, exclusive events, and a groundbreaking wallet for your security.",
+          },
+          {
+            id: 2,
+            backgroundColor: "#001F3F",
+            image: image2,
+            title: "Dive into the world of SocialFI in our All-in-One Hub",
+            subtitle:
+              "Discover new music and share your favorites.Watch exclusive videos and connect with creators.Subscribe for premium content and support artists Individually.",
+          },
+          {
+            id: 3,
+            backgroundColor: "#001F3F",
+            image: image3,
+            title: "Secure Wallet for Your Journey",
+            subtitle:
+              "Your inbuilt wallet ensures secure transactions. Purchase subscriptions, tip artists, and collect NFTs confidently.Your digital assets, your control.",
+          },
+        ]}
         keyExtractor={(_, index) => index.toString()}
         horizontal
         pagingEnabled
@@ -83,16 +124,7 @@ const OnboardingPage = () => {
         }}
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
-        renderItem={({ item, index }) => (
-          <Slides
-            backgroundColor={item.backgroundColor}
-            image={item.image}
-            title={item.title}
-            subtitle={item.subtitle}
-            currentIndex={index}
-            scrollX={scrollX}
-          />
-        )}
+        renderItem={({ item, index }) => <></>}
       /> */}
 
       <View className="flex-row items-center justify-evenly w-full mb-[30px]">

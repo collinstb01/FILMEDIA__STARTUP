@@ -15,11 +15,6 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {
-  _createWallet,
-  _getWalletAddress,
-  signInWithLens,
-} from "../constants/_helperFunctions";
 import { ethers } from "ethers";
 
 type Session = string | undefined;
@@ -98,77 +93,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     //   Alert.alert("You already have an account");
     //   return;
     // }
-
-    try {
-      if (!lensBool) {
-        let { privateKey: key, walletAddress, phrase } = await _createWallet();
-
-        const user = {
-          name,
-          password,
-          walletAddress,
-          privateKey: key,
-          phrase,
-        };
-        console.log(user);
-
-        console.log("creating.....");
-
-        await AsyncStorage.setItem("user", JSON.stringify(user));
-
-        if (true) {
-          Alert.alert(`Something went wrong`);
-          return;
-        }
-        if (walletAddress) {
-          await signInWithLens(walletAddress);
-
-          router.push("/(tabs)");
-        }
-      } else {
-        let signer = new ethers.Wallet(privateKey);
-
-        let walletAddress = signer.address;
-        const user = {
-          name,
-          password,
-          walletAddress,
-          privateKey,
-          phrase: "",
-        };
-
-        await signInWithLens(walletAddress);
-        await AsyncStorage.setItem("user", JSON.stringify(user));
-        router.push("/(tabs)");
-      }
-
-      // profileCreateResult is a Result object
-    } catch (error) {
-      Alert.alert("Error creating a new account");
-      console.error(error);
-    }
   };
 
-  const signin = async (email: string, password: string) => {
-    // Signed in
-    const user: string | null = await AsyncStorage.getItem("user");
-
-    if (user != undefined) {
-      const parseUser = JSON.parse(user);
-      if (parseUser.password != password) {
-        Alert.alert("Password is not correct");
-        console.error("Password is not correct");
-      } else {
-        // User is null
-        // Handle the case where the user is not found
-        await signInWithLens(parseUser.walletAddress);
-
-        router.push("/(tabs)");
-      }
-    } else {
-      Alert.alert("Error Please, Signup for a new account");
-    }
-  };
+  const signin = async (email: string, password: string) => {};
 
   useEffect(() => {
     // const retrieveAccount = async () => {

@@ -14,6 +14,9 @@ import TabHeader from "../../components/TabHeader";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MusicPlayer from "../../components/MusicPlayer";
 import { Platform, Keyboard, Animated } from "react-native";
+import { Portal } from "@gorhom/portal";
+import BottomSheet, { BottomSheetMethods } from "@devvie/bottom-sheet";
+
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -123,7 +126,7 @@ export default function TabLayout() {
             ),
           }}
         />
-        {/* <Tabs.Screen
+        <Tabs.Screen
           name="video"
           options={{
             tabBarLabel: "Video",
@@ -131,7 +134,7 @@ export default function TabLayout() {
               <Ionicons name="md-videocam" size={28} color={color} />
             ),
           }}
-        /> */}
+        />
         <Tabs.Screen
           name="nft"
           options={{
@@ -152,6 +155,7 @@ export default function TabLayout() {
         />
       </Tabs>
       {/* <MusicPlayer /> */}
+     
     </View>
   );
 }

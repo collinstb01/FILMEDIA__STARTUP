@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { InputField } from "../FormField";
 import { useAuth } from "../../context/AuthContext";
 import { ScrollView } from "react-native-gesture-handler";
+import { router } from "expo-router";
 
 type Props = {
   setCurrentScreen: React.Dispatch<React.SetStateAction<number>>;
@@ -25,9 +26,11 @@ const SignUp = ({ setCurrentScreen }: Props) => {
   const { createAnEOA } = useAuth();
 
   const handleSubmit = async () => {
-    if (!name || !password || password !== confirmPassword)
-      return Alert.alert("Fill up needed data");
-    createAnEOA(name, password, lens, "");
+    // if (!name || !password || password !== confirmPassword)
+    //   return Alert.alert("Fill up needed data");
+    // createAnEOA(name, password, lens, "");
+
+    router.push("/(tabs)");
   };
   return (
     <ScrollView
@@ -50,7 +53,7 @@ const SignUp = ({ setCurrentScreen }: Props) => {
               Create your account and dive into a world of Blockchain.
             </Text>
           </View>
-{/** form section */}
+          {/** form section */}
           <View className="">
             <InputField
               label="Name"

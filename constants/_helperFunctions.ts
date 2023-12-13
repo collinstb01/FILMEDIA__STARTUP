@@ -18,12 +18,13 @@ let filMediaMarketplaceContract: any,
   signer: any;
 
 const connect = async () => {
-  const user: string | null = await AsyncStorage.getItem("user");
-  if (user !== null) {
-    const parseUser: any = JSON.parse(user);
-
+  try {
     const provider = new ethers.JsonRpcProvider(PROVIDER);
-    const mnemonic: string = await getAccountPhrase();
+    const phrase = await getAccountPhrase();
+    if (phrase === null || phrase === undefined) {
+      throw new Error("Failed to get account phrase");
+    }
+    const mnemonic: string = phrase;
     const wallet = ethers.Wallet.fromPhrase(mnemonic);
 
     signer = new ethers.Wallet(wallet.privateKey, provider);
@@ -43,7 +44,9 @@ const connect = async () => {
       artistNFTAbi,
       signer
     );
-  } else {
+  } catch (error) {
+    Alert.alert("Conract not functioning");
+    console.error(error);
   }
 };
 connect();
@@ -121,7 +124,7 @@ export const _deposit = async ({
 export const _subcribeToArtist = async ({
   _artistAddr,
 }: {
-  _artistAddr: string;
+  _artistAddr: string | string[];
 }): Promise<boolean> => {
   try {
     const tx = await filMediaMarketplaceContract.subcribeToArtist(_artistAddr);
@@ -138,7 +141,7 @@ export const _subcribeToArtist = async ({
 export const _cancelSubcribtion = async ({
   _artistAddr,
 }: {
-  _artistAddr: string;
+  _artistAddr: string | string[];
 }): Promise<void> => {
   try {
     const tx = await filMediaMarketplaceContract(_artistAddr);
@@ -157,7 +160,7 @@ export const _setTokenId = async ({
   nftAddress,
 }: {
   subcriberAddress: string;
-  artistAddress: string;
+  artistAddress: string | string[];
   tokenId: string;
   nftAddress: string;
 }): Promise<boolean> => {
@@ -362,7 +365,7 @@ export const _getUserBalance = async ({
 export const _safeMint = async ({
   artistAddress,
 }: {
-  artistAddress: string;
+  artistAddress: string | string[];
 }): Promise<boolean> => {
   try {
     const tx = await dynamicNftContract.safeMint(artistAddress);

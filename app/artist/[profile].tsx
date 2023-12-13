@@ -20,7 +20,7 @@ const ArtistProfile = () => {
       style={{ flex: 1, minHeight: "100%", marginBottom: 789 }}
       contentContainerStyle={{
         flexGrow: 1,
-        paddingBottom: 760, // Adjust padding as needed
+        paddingBottom: 60, // Adjust padding as needed
       }}
       showsVerticalScrollIndicator={false}
     >
@@ -48,7 +48,7 @@ const ArtistProfile = () => {
             Davido
           </Text>
           <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff" }}>
-            {`${address.slice(0, 4)}...${address.slice(-4)}`}
+            {/* {`${address.slice(0, 4)}...${address.slice(-4)}`} */}
           </Text>
 
           <Text style={{ fontSize: 16, fontWeight: "bold", color: "#A8A8A8" }}>
@@ -74,7 +74,7 @@ const ArtistProfile = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => follow()}
+            // onPress={() => follow()}
             style={{
               marginTop: 29,
               paddingHorizontal: 24,
@@ -91,13 +91,13 @@ const ArtistProfile = () => {
             </Text>
           </TouchableOpacity>
         </View>
+      </View>
 
-        <View style={{ paddingTop: 9 }}>
-          <SubscriptionHeatmap />
-          <LatestRelease />
-          {/* <TopSongs /> */}
-          <Albums />
-        </View>
+      <View style={{ paddingTop: 20 }}>
+        <SubscriptionHeatmap />
+        <LatestRelease />
+        <TopSongs />
+        <Albums />
       </View>
       <PaymentModal
         modalVisible={modalVisible}

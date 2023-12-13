@@ -40,7 +40,7 @@ const TopSongs = () => {
   ];
 
   return (
-    <View className="w-full mx-4 pt-6">
+    <View className="w-full mx-4 px-9 pt-6">
       <View className="flex-row items-center justify-between w-full">
         <Text className="text-[20px] font-bold text-[#fff]">
         Top Songs

@@ -33,7 +33,7 @@ const Slides = ({}) => {
         </Text>
       </View>
       <TouchableOpacity
-        onPress={() => router.push("/(tabs)")}
+        onPress={() => router.push("/(auth)")}
         className="bg-[#4169E1] w-[80%] mt-[160px] mx-4 items-center justify-center px-[40px] py-[16px] rounded-lg"
       >
         <Text className="text-[#fff] font-bold text-[16px]">Get Started</Text>

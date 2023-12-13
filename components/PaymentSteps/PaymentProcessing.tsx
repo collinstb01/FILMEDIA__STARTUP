@@ -22,7 +22,7 @@ type Props = {
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   depositing: boolean;
-  artirstAddress: string;
+  artirstAddress: string | string[];
 };
 
 const PaymentProcessing = ({

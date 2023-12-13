@@ -123,7 +123,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
     await AsyncStorage.setItem("user", JSON.stringify(usesr));
 
-    const user: string | null = await AsyncStorage.getItem("user");
+    const user: string = await AsyncStorage.getItem("user");
     const parseUser = JSON.parse(user);
 
     if (user !== null) {
@@ -138,12 +138,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   useEffect(() => {
-    // const retrieveAccount = async () => {
-    //   const account = await getAccount();
-    //   setSession(account);
-    //   router.push("/(tabs)");
-    // };
-    // retrieveAccount();
+    const retrieveAccount = async () => {
+      const account = await getAccount();
+      setSession(account);
+      if (session) {
+        router.push("/(tabs)");
+      }
+    };
+    retrieveAccount();
   }, [session]);
 
   const contextValue: AuthContextValue = {

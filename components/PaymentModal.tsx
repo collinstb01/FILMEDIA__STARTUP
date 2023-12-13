@@ -8,7 +8,7 @@ type Props = {
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   modalVisible: boolean;
   depositing: boolean;
-  artirstAddress: string;
+  artirstAddress: string | string[]
 };
 
 const PaymentModal = ({

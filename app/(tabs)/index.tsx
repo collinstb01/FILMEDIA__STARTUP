@@ -16,6 +16,7 @@ const explore = () => {
     <View className="min-h-screen flex-1">
       <StatusBar barStyle="default" />
       <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingHorizontal: 15,
           paddingVertical: 20,

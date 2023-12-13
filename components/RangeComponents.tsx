@@ -2,7 +2,11 @@ import { View, Text, Pressable } from "react-native";
 import React, { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 
-const RangeComponents = () => {
+type Props = {
+  nfts: true;
+};
+
+const RangeComponents = ({ nfts }: Props) => {
   const [active, setIsActive] = useState("trending");
 
   const steps = [
@@ -48,11 +52,27 @@ const RangeComponents = () => {
     },
   ];
 
+  const levels = [
+    {
+      value: "Level One",
+      active: "1",
+    },
+    {
+      value: "Level Two",
+      active: "2",
+    },
+    {
+      value: "Level Three",
+      active: "3",
+    },
+  ];
+
+  const arr = nfts ? levels : steps;
   return (
     <View className="">
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <Pressable className="flex-row gap-x-8 mt-2">
-          {steps.map((item, index) => (
+          {arr.map((item, index) => (
             <Text
               onPress={() => setIsActive(item.active)}
               key={index}

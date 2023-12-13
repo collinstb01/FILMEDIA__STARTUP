@@ -15,7 +15,7 @@ const PaymentModal = ({
   modalVisible,
   setModalVisible,
   depositing,
-  artirstAddress,
+  artirstAddress
 }: Props) => {
   const [currentStep, setCurrentStep] = useState(0);
 

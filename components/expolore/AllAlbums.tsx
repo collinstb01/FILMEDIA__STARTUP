@@ -60,7 +60,7 @@ const AllAlbums = () => {
 
       <RangeComponents />
 
-      <View style={{flexDirection: "row", flexWrap: "wrap", marginTop: 19}}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 19 }}>
         {songs.map((item, index) => (
           <View style={{ width: "50%" }}>
             <AlbumCard key={index} {...item} />
@@ -68,7 +68,7 @@ const AllAlbums = () => {
         ))}
       </View>
     </View>
-  )
+  );
 };
 
 export default AllAlbums;

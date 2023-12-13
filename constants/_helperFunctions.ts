@@ -127,7 +127,10 @@ export const _subcribeToArtist = async ({
   _artistAddr: string | string[];
 }): Promise<boolean> => {
   try {
-    const tx = await filMediaMarketplaceContract.subcribeToArtist(_artistAddr);
+    const tx = await filMediaMarketplaceContract.subcribeToArtist(
+      _artistAddr,
+      1
+    );
     await tx.wait();
     console.log("Transaction successful:", tx.hash);
     return true;
@@ -368,7 +371,7 @@ export const _safeMint = async ({
   artistAddress: string | string[];
 }): Promise<boolean> => {
   try {
-    const tx = await dynamicNftContract.safeMint(artistAddress);
+    const tx = await dynamicNftContract.safeMint(artistAddress, 1);
     await tx.wait();
     console.log("Transaction successful:", tx.hash);
 

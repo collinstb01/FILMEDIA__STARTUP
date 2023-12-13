@@ -29,6 +29,8 @@ const ArtistProfile = () => {
   const params = useLocalSearchParams();
   const { address } = params;
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     const filteredArtists = artistsArr.filter(
       (artist) => artist.owner === address

@@ -26,11 +26,9 @@ const SignUp = ({ setCurrentScreen }: Props) => {
   const { createAnEOA } = useAuth();
 
   const handleSubmit = async () => {
-    // if (!name || !password || password !== confirmPassword)
-    //   return Alert.alert("Fill up needed data");
-    // createAnEOA(name, password, lens, "");
-
-    router.push("/(tabs)");
+    if (!name || !password || password !== confirmPassword)
+      return Alert.alert("Fill up needed data");
+    createAnEOA(name, password, lens, "");
   };
   return (
     <ScrollView

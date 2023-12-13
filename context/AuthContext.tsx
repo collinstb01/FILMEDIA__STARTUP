@@ -89,13 +89,53 @@ export function AuthProvider({ children }: AuthProviderProps) {
     lensBool: boolean,
     privateKey: string
   ) => {
-    // if (session) {
-    //   Alert.alert("You already have an account");
-    //   return;
-    // }
+    const account = await getAccount();
+
+    if (account) {
+      return Alert.alert("Account already exist please login");
+    }
+    const newAccount = await createAccount();
+
+    // mint the user
+    // add the user to the marketplace contract
+    const user = {
+      walletAddress: newAccount,
+      password,
+      tokenId: 1,
+    };
+
+    console.log(user);
+    await AsyncStorage.setItem("user", JSON.stringify(user));
+    if (newAccount) {
+      router.push("/(tabs)");
+    }
   };
 
-  const signin = async (email: string, password: string) => {};
+  const signin = async (email: string, password: string) => {
+    const account = await getAccount();
+
+    // mint the user
+    // add the user to the marketplace contract
+    const usesr = {
+      walletAddress: account,
+      password,
+      tokenId: 1,
+    };
+    await AsyncStorage.setItem("user", JSON.stringify(usesr));
+
+    const user: string | null = await AsyncStorage.getItem("user");
+    const parseUser = JSON.parse(user);
+
+    if (user !== null) {
+      if (parseUser.password !== password) {
+        return Alert.alert("Password isnt correct");
+      }
+
+      router.push("/(tabs)");
+    } else {
+      Alert.alert("No user found, Please login");
+    }
+  };
 
   useEffect(() => {
     // const retrieveAccount = async () => {

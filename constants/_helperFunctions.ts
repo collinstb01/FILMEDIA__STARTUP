@@ -10,26 +10,24 @@ import dynamicNftAbi from "./abis/FilMediaDynamicNFTAbi.json";
 import artistNFTAbi from "./abis/FilMediaArtistNFTAbi.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert } from "react-native";
+import { getAccountPhrase } from "@rly-network/mobile-sdk";
 
 let filMediaMarketplaceContract: any,
   dynamicNftContract: any,
   artistNFTContract: any,
   signer: any;
 
-AsyncStorage.setItem("user", "");
-
 const connect = async () => {
   const user: string | null = await AsyncStorage.getItem("user");
   if (user !== null) {
     const parseUser: any = JSON.parse(user);
 
-    const provider = new ethers.JsonRpcProvider(
-      "https://polygon-mumbai.g.alchemy.com/v2/rTSTOJ-A9kZEEPNn_VUbjqnUFgtYQ2Kd"
-    );
+    const provider = new ethers.JsonRpcProvider(PROVIDER);
+    const mnemonic: string = await getAccountPhrase();
+    const wallet = ethers.Wallet.fromPhrase(mnemonic);
 
-    signer = new ethers.Wallet(parseUser.privateKey, provider);
+    signer = new ethers.Wallet(wallet.privateKey, provider);
 
-    console.log(parseUser, "this is parsed user");
     filMediaMarketplaceContract = new ethers.Contract(
       filMediaMarketplaceAddress,
       filMediaMarketplaceAbi,
@@ -48,7 +46,7 @@ const connect = async () => {
   } else {
   }
 };
-// connect();
+connect();
 
 ///////////////// MARKETPLACE CONTRACT  //////////////////////////////
 // Function to interact with the "listNFT" Solidity function

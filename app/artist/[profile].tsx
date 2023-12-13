@@ -48,7 +48,7 @@ const ArtistProfile = () => {
             Davido
           </Text>
           <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff" }}>
-            {`${address.slice(0, 4)}...${address.slice(-4)}`}
+            {/* {`${address.slice(0, 4)}...${address.slice(-4)}`} */}
           </Text>
 
           <Text style={{ fontSize: 16, fontWeight: "bold", color: "#A8A8A8" }}>

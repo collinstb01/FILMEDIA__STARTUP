@@ -9,12 +9,19 @@ import { Audio } from "expo-av";
 type Props = {
   name: string;
   image: string;
-  title: string;
   artist: string;
   tokenId: number;
+  description: string;
+  external_url: string;
 };
 
-const SongsCard = ({ artist, image, name, title, tokenId }: Props) => {
+const SongsCard = ({
+  image,
+  name,
+  tokenId,
+  external_url,
+  description,
+}: Props) => {
   const [imageURI, tokenName, tokenDescription, category] = useGetNFTs(
     tokenId,
     artistNFTAddress
@@ -25,7 +32,7 @@ const SongsCard = ({ artist, image, name, title, tokenId }: Props) => {
     try {
       const { sound: playbackObject } = await Audio.Sound.createAsync(
         {
-          uri: imageURI,
+          uri: external_url,
         },
         { shouldPlay: true }
       );
@@ -55,10 +62,10 @@ const SongsCard = ({ artist, image, name, title, tokenId }: Props) => {
               <Text className="text-[#fff] text-[16px] font-bold">{name}</Text>
             </Link>
             <Text className="text-[#fff] text-[14px] font-semibold">
-              {tokenName}
+              {name}
             </Text>
             <Text className="text-[#fff] text-[14px] font-semibold">
-              {tokenDescription}
+              {description.slice(0, 10)}
             </Text>
           </View>
         </View>

@@ -152,7 +152,139 @@ export const options: Option[] = [
   },
 ];
 
-
+export const songs = [
+  {
+    name: "Synthwave Reverie",
+    description: "An immersive journey through retro-futuristic soundscapes.",
+    image:
+      "https://gateway.pinata.cloud/ipfs/QmVq7FjdMEVrBKsdLV2SpBmA16XswYqYWSdSbf3w9Y4Vun",
+    external_url:
+      "https://gateway.pinata.cloud/ipfs/QmQsPcQNUEQgo5wMMtz6aFN5YrVXR6bqnzyshk2ZUpuD94",
+    attributes: [
+      {
+        trait_type: "Artist",
+        value: "Eva Synth",
+      },
+      {
+        trait_type: "Genre",
+        value: "Synthwave",
+      },
+      {
+        trait_type: "Duration",
+        value: "6:00",
+      },
+    ],
+    properties: {
+      royalties: {
+        artist: 85,
+        platform: 10,
+        remixers: 5,
+      },
+      file: {
+        format: "audio/flac",
+        url: "https://www.evasynth.com/synthwave-reverie.flac",
+      },
+    },
+    external_links: [
+      {
+        name: "Auction",
+        url: "https://www.auctionplatform.com/synthwave-reverie",
+      },
+      {
+        name: "Rarible",
+        url: "https://rarible.com/evasynth",
+      },
+    ],
+  },
+  {
+    name: "Rhythmic Fusion",
+    description:
+      "A dynamic fusion of electronic beats and world music influences.",
+    image:
+      "https://gateway.pinata.cloud/ipfs/QmezmoYbznYyV7stwtU8hUDnEQ9VHNfNFaXogc8uaGdrpv",
+    external_url:
+      "https://gateway.pinata.cloud/ipfs/QmS7miWViZk9N7URkoiNbBfQcRH7YJxDWKxjhRTcysiftJ",
+    attributes: [
+      {
+        trait_type: "Artist",
+        value: "Carlos Beats",
+      },
+      {
+        trait_type: "Genre",
+        value: "Electronic World",
+      },
+      {
+        trait_type: "Duration",
+        value: "4:15",
+      },
+    ],
+    properties: {
+      royalties: {
+        artist: 75,
+        platform: 15,
+        featured_artists: 10,
+      },
+      file: {
+        format: "audio/wav",
+        url: "https://www.carlosbeats.com/rhythmic-fusion.wav",
+      },
+    },
+    external_links: [
+      {
+        name: "Auction",
+        url: "https://www.auctionplatform.com/rhythmic-fusion",
+      },
+      {
+        name: "OpenSea",
+        url: "https://opensea.io/carlosbeats",
+      },
+    ],
+  },
+  {
+    name: "Ethereal Symphony",
+    description:
+      "A mesmerizing orchestral composition that transcends boundaries.",
+    image:
+      "https://gateway.pinata.cloud/ipfs/QmU8aESnXp7Q7CRQBELH5bTzzP6RUdJpQSZgCXgZus6Ggy",
+    external_url:
+      "https://gateway.pinata.cloud/ipfs/QmRS6G1vtW4Q37knbSJMqxi4eWYNXEo2xzr4Sn8YbAfKnf",
+    attributes: [
+      {
+        trait_type: "Artist",
+        value: "Sophia Harmony",
+      },
+      {
+        trait_type: "Genre",
+        value: "Orchestral",
+      },
+      {
+        trait_type: "Duration",
+        value: "5:30",
+      },
+    ],
+    properties: {
+      royalties: {
+        artist: 80,
+        platform: 10,
+        collaborators: 10,
+      },
+      file: {
+        format: "audio/mp3",
+        url: "https://www.sophiaharmony.com/ethereal-symphony.mp3",
+      },
+    },
+    external_links: [
+      {
+        name: "Auction",
+        url: "https://www.auctionplatform.com/ethereal-symphony",
+      },
+      {
+        name: "Mintable",
+        url: "https://mintable.app/sophiaharmony",
+      },
+    ],
+  },
+];
 
 export const truncate = (text: string, count = 35) =>
-  text?.length > count ? `${text.substring(0, count)}...` : text
+  text?.length > count ? `${text.substring(0, count)}...` : text;

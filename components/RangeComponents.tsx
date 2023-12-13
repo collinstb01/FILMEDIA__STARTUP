@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 
 type Props = {
-  nfts: true;
+  nfts?: true;
 };
 
 const RangeComponents = ({ nfts }: Props) => {

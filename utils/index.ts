@@ -16,150 +16,6 @@ export type Option = {
   // ... rest of the properties ...
 };
 
-export const artistsArr = [
-  {
-    name: "Alice Artistry",
-    owner: "0xCD387d3D0F41dD17Fe0c2f9462fDEC6B54D7819D",
-    description:
-      "An innovative artist pushing the boundaries of traditional and digital art forms.",
-    image:
-      "https://gateway.pinata.cloud/ipfs/QmevqC9pXa1K31SR5TgD3iK4iq7a1sLHgdhq6HDKjuYWmY",
-    external_url: "https://www.aliceartistry.com",
-    attributes: [
-      {
-        trait_type: "Style",
-        value: "Surreal",
-      },
-      {
-        trait_type: "Medium",
-        value: "Mixed Media",
-      },
-      {
-        trait_type: "Dimensions",
-        value: "1800x1800",
-      },
-    ],
-    properties: {
-      creation_date: "2023-05-20T15:30:00Z",
-      edition: {
-        total: 8,
-        current: 3,
-      },
-      royalties: {
-        artist: 75,
-        platform: 15,
-        community: 10,
-      },
-    },
-    followers: 1200,
-    following: 350,
-    external_links: [
-      {
-        name: "Auction",
-        url: "https://www.auctionplatform.com/alice-artistry-001",
-      },
-      {
-        name: "Rarible",
-        url: "https://rarible.com/aliceartistry",
-      },
-    ],
-  },
-  {
-    name: "David Dreamer",
-    owner: "0xB58720FD2732C861718e276F1dA28d398F766c96",
-    description:
-      "A dream-inspired artist, turning imagination into captivating visual experiences.",
-    image:
-      "https://gateway.pinata.cloud/ipfs/QmWrxkw5HWZ8FFooWz2vikAcBWXxJncMrmGXDcQ6ecs96s",
-    external_url: "https://www.daviddreamer.com",
-    attributes: [
-      {
-        trait_type: "Style",
-        value: "Fantasy",
-      },
-      {
-        trait_type: "Medium",
-        value: "Digital Painting",
-      },
-      {
-        trait_type: "Dimensions",
-        value: "2500x2500",
-      },
-    ],
-    properties: {
-      creation_date: "2023-06-10T10:45:00Z",
-      edition: {
-        total: 15,
-        current: 5,
-      },
-      royalties: {
-        artist: 85,
-        platform: 10,
-        community: 5,
-      },
-    },
-    followers: 2500,
-    following: 120,
-    external_links: [
-      {
-        name: "Auction",
-        url: "https://www.auctionplatform.com/david-dreamer-001",
-      },
-      {
-        name: "SuperRare",
-        url: "https://superrare.com/daviddreamer",
-      },
-    ],
-  },
-  {
-    name: "John Doe",
-    owner: "0x930F888B18a3Af35f6e7d01eF5072d183403bAf0",
-    description:
-      "A passionate artist exploring the intersection of technology and creativity.",
-    image:
-      "https://gateway.pinata.cloud/ipfs/QmdTHfosZu1GA76bdKiF1CkUUpwbrD782L9JixJ47V4B9g",
-    external_url: "https://www.johndoeart.com",
-    attributes: [
-      {
-        trait_type: "Style",
-        value: "Abstract",
-      },
-      {
-        trait_type: "Medium",
-        value: "Digital",
-      },
-      {
-        trait_type: "Dimensions",
-        value: "2000x2000",
-      },
-    ],
-    properties: {
-      creation_date: "2023-04-15T12:00:00Z",
-      edition: {
-        total: 10,
-        current: 1,
-      },
-      royalties: {
-        artist: 80,
-        platform: 10,
-        community: 10,
-      },
-    },
-    followers: 1800,
-    following: 500,
-    external_links: [
-      {
-        name: "Auction",
-        url: "https://www.auctionplatform.com/artistic-masterpiece-001",
-      },
-      {
-        name: "OpenSea",
-        url: "https://opensea.io/artistic-masterpiece-001",
-      },
-    ],
-  },
-];
-
 export const lib = [
   {
     value: "Favourite",
@@ -436,6 +292,7 @@ export const truncate = (text: string, count = 35) =>
 export const artistsArr = [
   {
     name: "Alice Artistry",
+    owner: "0x930F888B18a3Af35f6e7d01eF5072d183403bAf0",
     description:
       "An innovative artist pushing the boundaries of traditional and digital art forms.",
     image:
@@ -482,6 +339,7 @@ export const artistsArr = [
   },
   {
     name: "David Dreamer",
+    owner: "0xCD387d3D0F41dD17Fe0c2f9462fDEC6B54D7819D",
     description:
       "A dream-inspired artist, turning imagination into captivating visual experiences.",
     image:
@@ -528,6 +386,7 @@ export const artistsArr = [
   },
   {
     name: "John Doe",
+    owner: "0xB58720FD2732C861718e276F1dA28d398F766c96",
     description:
       "A passionate artist exploring the intersection of technology and creativity.",
     image:

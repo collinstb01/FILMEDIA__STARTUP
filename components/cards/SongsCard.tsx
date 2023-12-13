@@ -65,7 +65,7 @@ const SongsCard = ({
               {name}
             </Text>
             <Text className="text-[#fff] text-[14px] font-semibold">
-              {description.slice(0, 10)}
+              {`${description.slice(0, 10)}.....`}
             </Text>
           </View>
         </View>

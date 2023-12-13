@@ -8,6 +8,7 @@ import AllArtist from "../../components/expolore/AllArtist";
 import AllPodcast from "../../components/expolore/AllPodcast";
 import Search from "../../components/Search";
 import { useAuth } from "../../context/AuthContext";
+import AllNfts from "../../components/expolore/AllNfts";
 
 const explore = () => {
   const [isInFocus, setIsInFocus] = useState(false);
@@ -52,6 +53,7 @@ const explore = () => {
               <AllAlbums />
               <AllPodcast />
               <AllArtist />
+              <AllNfts />
             </View>
           )}
 

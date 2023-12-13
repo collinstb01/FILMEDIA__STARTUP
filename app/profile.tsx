@@ -75,44 +75,6 @@ const profile = () => {
             {`Welcome Back`}
           </Text>
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <TouchableOpacity
-            style={{
-              marginTop: 29,
-              paddingHorizontal: 24,
-              backgroundColor: "#4169E1",
-              paddingVertical: 8,
-              alignItems: "center",
-              justifyContent: "center",
-              // width: "40%",
-              marginRight: 4,
-              borderRadius: 40,
-            }}
-            className="mx-auto"
-          >
-            <Text style={{ fontSize: 12, fontWeight: "bold", color: "#fff" }}>
-              Upload Content
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setModalVisible(true)}
-            style={{
-              marginTop: 29,
-              paddingHorizontal: 24,
-              backgroundColor: "#4169E1",
-              paddingVertical: 8,
-              alignItems: "center",
-              justifyContent: "center",
-              // width: "40%",
-              borderRadius: 40,
-            }}
-            className="mx-auto"
-          >
-            <Text style={{ fontSize: 12, fontWeight: "bold", color: "#fff" }}>
-              DEPOSIT
-            </Text>
-          </TouchableOpacity>
-        </View>
         <View
           style={{
             justifyContent: "center",

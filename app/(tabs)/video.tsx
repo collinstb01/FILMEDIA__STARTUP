@@ -6,16 +6,19 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-} from "react-native"
-import React, {useState} from "react"
-import IconArrowForward from "../../components/IconComponents/IconArrowForward"
-import IconVerticalDots from "../../components/IconComponents/IconVerticalDots"
-import IconDot from "../../components/IconComponents/IconDot"
-import FontAwesome from "@expo/vector-icons/FontAwesome"
-import VideoCard from "../../components/cards/VideoCard"
+  Pressable,
+} from "react-native";
+import React, { useState } from "react";
+import IconArrowForward from "../../components/IconComponents/IconArrowForward";
+import IconVerticalDots from "../../components/IconComponents/IconVerticalDots";
+import IconDot from "../../components/IconComponents/IconDot";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import VideoCard from "../../components/cards/VideoCard";
+import { Video, ResizeMode } from "expo-av";
+import { router } from "expo-router";
 
 const video = () => {
-  const [isInFocus, setIsInFocus] = useState(false)
+  const [isInFocus, setIsInFocus] = useState(false);
   const songs = [
     {
       name: "Song 1",
@@ -45,103 +48,117 @@ const video = () => {
       title: "I Told Them - Official Music Video",
       artist: "Artist D",
     },
-  ]
+  ];
+
+  const video = React.useRef<Video>(null);
+  const [status, setStatus] = React.useState({});
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        paddingHorizontal: 15,
-        paddingVertical: 20,
-        marginBottom: 19,
-      }}
-      style={{
-        marginBottom: 100,
-        flex: 1,
-        height: "100%",
-      }}
-    >
-      <View className="bg-blue-600/25 w-full h-[48px] space-x-6 px-5 flex-row items-center rounded-[80px]">
-        <FontAwesome name="search" size={24} color="white" />
-        <TextInput
-          placeholder="Search"
-          className="w-full"
-          placeholderTextColor={"white"}
-          onFocus={() => setIsInFocus(!isInFocus)}
-        />
-      </View>
-      <View style={styles.viewMoreContainer}>
-        <Text style={styles.video}>Video</Text>
-        <TouchableOpacity style={styles.viewMoreContainerFlex}>
-          <Text style={styles.viewMore}>More</Text>
-          <IconArrowForward />
-        </TouchableOpacity>
-      </View>
-      {[1, 2].map((value, index) => {
-        return (
-          <View key={index} style={styles.box}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={{
-                  uri: "https://res.cloudinary.com/rashot/image/upload/v1701347221/image_38_val7lf.jpg",
-                }}
-                style={styles.previewImage}
-              />
-            </View>
-            <View style={styles.grandParent}>
-              <View style={styles.titleContainer}>
-                <Image
+    <View className="flex-1 min-h-screen">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingVertical: 20,
+          marginBottom: 1190,
+        }}
+        style={{
+          marginBottom: 100,
+          flex: 1,
+          height: "100%",
+        }}
+      >
+        <View className="bg-blue-600/25 w-full h-[48px] space-x-6 px-5 flex-row items-center rounded-[80px]">
+          <FontAwesome name="search" size={24} color="white" />
+          <TextInput
+            placeholder="Search"
+            className="w-full"
+            placeholderTextColor={"white"}
+            onFocus={() => setIsInFocus(!isInFocus)}
+          />
+        </View>
+        <View style={styles.viewMoreContainer}>
+          <Text style={styles.video}>Video</Text>
+          <TouchableOpacity style={styles.viewMoreContainerFlex}>
+            <Text style={styles.viewMore}>More</Text>
+            <IconArrowForward />
+          </TouchableOpacity>
+        </View>
+        {[1, 2].map((value, index) => {
+          return (
+            <View key={index} style={styles.box}>
+              <Pressable
+                onPress={() => router.push("/vid/joseph")}
+                style={styles.imageContainer}
+              >
+                <Video
+                  ref={video}
+                  style={styles.previewImage}
                   source={{
-                    uri: "https://res.cloudinary.com/rashot/image/upload/v1701351537/image_31_dst2pw.png",
+                    uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
                   }}
-                  style={styles.profileImage}
+                  // useNativeControls
+
+                  resizeMode={ResizeMode.CONTAIN}
+                  isLooping
+                  onPlaybackStatusUpdate={(status) => setStatus(() => status)}
                 />
-                <View>
-                  <Text style={styles.videoTitle}>
-                    I Told Them - Official Music Video
-                  </Text>
-                  <View style={styles.subTitleContainer}>
-                    <Text style={styles.subTitle}>Burna Boy</Text>
-                    <View style={styles.subTitleContainerChild}>
-                      <IconDot />
-                      <Text style={styles.subTitle}>44K views</Text>
-                    </View>
-                    <View style={styles.subTitleContainerChild}>
-                      <IconDot />
-                      <Text style={styles.subTitle}>4 months ago</Text>
+              </Pressable>
+              <View style={styles.grandParent}>
+                <View style={styles.titleContainer}>
+                  <Image
+                    source={{
+                      uri: "https://res.cloudinary.com/rashot/image/upload/v1701351537/image_31_dst2pw.png",
+                    }}
+                    style={styles.profileImage}
+                  />
+                  <View>
+                    <Text style={styles.videoTitle}>
+                      I Told Them - Official Music Video
+                    </Text>
+                    <View style={styles.subTitleContainer}>
+                      <Text style={styles.subTitle}>Burna Boy</Text>
+                      <View style={styles.subTitleContainerChild}>
+                        <IconDot />
+                        <Text style={styles.subTitle}>44K views</Text>
+                      </View>
+                      <View style={styles.subTitleContainerChild}>
+                        <IconDot />
+                        <Text style={styles.subTitle}>4 months ago</Text>
+                      </View>
                     </View>
                   </View>
                 </View>
+                <TouchableOpacity>
+                  <IconVerticalDots />
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity>
-                <IconVerticalDots />
-              </TouchableOpacity>
             </View>
-          </View>
-        )
-      })}
-      <View style={styles.viewMoreContainer}>
-        <Text style={styles.video}>Shorts</Text>
-        <TouchableOpacity style={styles.viewMoreContainerFlex}>
-          <Text style={styles.viewMore}>More</Text>
-          <IconArrowForward />
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{flexDirection: "row", flexWrap: "wrap", marginTop: 7}}
-        className="gap-4 justify-items-start"
-      >
-        {songs.map((item, index) => (
-          <View style={{flexBasis: 165, flexGrow: 1}} key={index}>
-            <VideoCard {...item} />
-          </View>
-        ))}
-      </View>
-    </ScrollView>
-  )
-}
+          );
+        })}
+        <View style={styles.viewMoreContainer}>
+          <Text style={styles.video}>Shorts</Text>
+          <TouchableOpacity style={styles.viewMoreContainerFlex}>
+            <Text style={styles.viewMore}>More</Text>
+            <IconArrowForward />
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 7 }}
+          className="gap-4 justify-items-start"
+        >
+          {songs.map((item, index) => (
+            <View style={{ flexBasis: 165, flexGrow: 1 }} key={index}>
+              <VideoCard {...item} />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
 
-export default video
+export default video;
 
 const styles = StyleSheet.create({
   viewMoreContainer: {
@@ -236,4 +253,4 @@ const styles = StyleSheet.create({
   box: {
     marginTop: 20,
   },
-})
+});

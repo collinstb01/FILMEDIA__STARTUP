@@ -68,18 +68,18 @@ const AllArtist = () => {
         </View>
       </View>
 
-      <RangeComponents />
+      {/* <RangeComponents /> */}
 
       <View
         style={{ flexDirection: "column", flexWrap: "wrap", marginTop: 19 }}
       >
-        {/* {artists?.length == 0
+        {artists?.length == 0
           ? null
           : artists?.map((address, index) => (
               <View style={{ width: "50%" }} key={index}>
                 <ArtistCard address={address} />
               </View>
-            ))} */}
+            ))}
       </View>
     </View>
   );

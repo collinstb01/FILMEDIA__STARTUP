@@ -1,5 +1,5 @@
 import { View, Text, Image, Pressable } from "react-native";
-import BottomSheet, { BottomSheetMethods } from "@devvie/bottom-sheet";
+import { BottomSheetMethods } from "@devvie/bottom-sheet";
 import React, { useRef } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AiFillNotification } from "react-icons/ai";
@@ -7,6 +7,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { router } from "expo-router";
 import { Portal } from "@gorhom/portal";
 import BottomsheetCom from "./BottomsheetCom";
+import BottomSheet from "@devvie/bottom-sheet/lib/typescript/components/bottomSheet";
 
 const TabHeader = () => {
   const sheetRef = useRef<BottomSheetMethods>(null);
@@ -37,7 +38,7 @@ const TabHeader = () => {
           />
         </View>
       </View>
-      <Portal>
+      {/* <Portal>
         <View>
           <BottomSheet
             // onOpen={() => sheetRef.current?.open()}
@@ -50,7 +51,7 @@ const TabHeader = () => {
             <BottomsheetCom />
           </BottomSheet>
         </View>
-      </Portal>
+      </Portal> */}
     </View>
   );
 };

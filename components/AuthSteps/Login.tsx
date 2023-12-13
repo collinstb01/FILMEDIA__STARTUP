@@ -24,7 +24,7 @@ const Login = ({ setCurrentScreen }: Props) => {
   const { signin, createAnEOA } = useAuth();
 
   const handleSubmit = async () => {
- 
+    await signin(email, password);
   };
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

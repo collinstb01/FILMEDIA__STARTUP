@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import SubscriptionHeatmap from "../../components/profile/SubscriptionHeatmap";
@@ -13,7 +13,9 @@ import { router, useLocalSearchParams } from "expo-router";
 const ArtistProfile = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const params = useLocalSearchParams();
-  const { address } = params;
+  const { id } = params;
+
+  useEffect(() => {}, []);
 
   return (
     <ScrollView
@@ -74,7 +76,7 @@ const ArtistProfile = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => follow()}
+            onPress={() => {}}
             style={{
               marginTop: 29,
               paddingHorizontal: 24,
@@ -103,7 +105,7 @@ const ArtistProfile = () => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         depositing={false}
-        artirstAddress={address}
+        artirstID={id}
       />
     </ScrollView>
   );

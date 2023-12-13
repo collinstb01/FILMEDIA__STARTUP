@@ -59,7 +59,7 @@ const Albums = () => {
       </View>
       <ScrollView horizontal>
         {songs.map((item, index) => (
-          <View >
+          <View key={index}>
             <AlbumCard {...item} />
           </View>
         ))}

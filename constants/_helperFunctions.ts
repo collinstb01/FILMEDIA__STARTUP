@@ -119,12 +119,15 @@ export const _deposit = async ({
 
 // Function to interact with the "subcribeToArtist" Solidity function
 export const _subcribeToArtist = async ({
-  _artistAddr,
+  _artistTokenId,
 }: {
-  _artistAddr: string;
+  _artistTokenId: string;
 }): Promise<boolean> => {
   try {
-    const tx = await filMediaMarketplaceContract.subcribeToArtist(_artistAddr);
+    const tx = await filMediaMarketplaceContract.subcribeToArtist(
+      _artistTokenId,
+      1
+    );
     await tx.wait();
     console.log("Transaction successful:", tx.hash);
     return true;
@@ -360,12 +363,12 @@ export const _getUserBalance = async ({
 ///////////////// DYNAMIC NFT CONTRACT  //////////////////////////////
 // Function to interact with the "safeMint" Solidity function
 export const _safeMint = async ({
-  artistAddress,
+  artistTokenId,
 }: {
-  artistAddress: string;
+  artistTokenId: string;
 }): Promise<boolean> => {
   try {
-    const tx = await dynamicNftContract.safeMint(artistAddress);
+    const tx = await dynamicNftContract.safeMint(artistTokenId, 1);
     await tx.wait();
     console.log("Transaction successful:", tx.hash);
 

@@ -530,7 +530,7 @@ export const artistsnft = [
     ],
   },
   {
-    name: "Wizkid: l3",
+    name: "Wizkid: L3",
     description:
       "A passionate artist exploring the intersection of technology and creativity.",
     image:

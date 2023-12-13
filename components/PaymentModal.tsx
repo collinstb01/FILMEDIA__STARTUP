@@ -8,14 +8,14 @@ type Props = {
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   modalVisible: boolean;
   depositing: boolean;
-  artirstAddress: string;
+  artirstID: string;
 };
 
 const PaymentModal = ({
   modalVisible,
   setModalVisible,
   depositing,
-  artirstAddress,
+  artirstID,
 }: Props) => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -43,7 +43,7 @@ const PaymentModal = ({
             setModalVisible={setModalVisible}
             setCurrentStep={setCurrentStep}
             depositing={depositing}
-            artirstAddress={artirstAddress}
+            artirstID={artirstID}
           />
         );
 

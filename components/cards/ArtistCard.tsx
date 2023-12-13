@@ -1,31 +1,36 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "expo-router";
+import useGetArtist from "../../constants/hooks/useGetArtist";
+import { artistFTAddress } from "../../constants/addresses";
 
 type Props = {
-  address: string;
+  name: string;
+  description: string;
+  image: string;
 };
 
-const ArtistCard = ({ address }: Props) => {
+const ArtistCard = ({ name, description, image }: Props) => {
+  // const [imageURI, tokenName, tokenDescription, category] = useGetArtist(
+  //   id,
+  //   artistFTAddress
+  // );
+
   return (
-    <Link
-      href={{ pathname: `/artist/${address}`, params: { address: address } }}
-    >
+    <Link href={{ pathname: `/artist/${1}`, params: { id: 1 } }}>
       <View className="flex-row items-center space-x-3 pb-5">
         <Text className="text-[14px] text-[#fff] font-bold">1</Text>
         <View className="flex-row items-center space-x-8">
           <Image
             source={{
-              uri: "image",
+              uri: image,
             }}
             className="w-[90px] rounded-full h-[90px] bg-black"
           />
           <View>
-            <Text className="text-[14px] text-[#fff] font-bold">
-              {"artist"}
-            </Text>
+            <Text className="text-[14px] text-[#fff] font-bold">{name}</Text>
             <Text className="text-[10px] text-[#808080] font-bold">
-              81.1m Total Plays 81.1m Total Plays
+              {description}
             </Text>
           </View>
         </View>

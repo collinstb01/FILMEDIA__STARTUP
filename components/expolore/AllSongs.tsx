@@ -7,6 +7,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { ApolloProvider, useQuery } from "@apollo/client";
 import { client } from "../../constants/addresses";
 import GET_LISTED_NFTS from "../../constants/subgraphQueries";
+import { songs } from "../../utils";
 
 const AllSongs = () => {
   const songs = [
@@ -76,11 +77,9 @@ const Music = () => {
         }}
       >
         <View className="flex-col space-y-6 mt-4 w-full overflow-hidden">
-          {!listedNfts
+          {!songs
             ? null
-            : listedNfts?.listedMusicNFTs?.map((val, i) => (
-                <SongsCard key={i} {...val} />
-              ))}
+            : songs?.map((val, i) => <SongsCard key={i} {...val} />)}
         </View>
       </ScrollView>
     </View>

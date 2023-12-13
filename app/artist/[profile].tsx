@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import SubscriptionHeatmap from "../../components/profile/SubscriptionHeatmap";
@@ -9,11 +9,32 @@ import Albums from "../../components/profile/Albums";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PaymentModal from "../../components/PaymentModal";
 import { router, useLocalSearchParams } from "expo-router";
+import { artistsArr } from "../../utils";
+
+interface ArtistProfile {
+  name: string;
+  owner: string;
+  description: string;
+  image: string;
+  external_url: string;
+  attributes: {
+    trait_type: string;
+    value: string;
+  }[];
+}
 
 const ArtistProfile = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [artistprofile, setArtistProfile] = useState<ArtistProfile>();
   const params = useLocalSearchParams();
   const { address } = params;
+
+  useEffect(() => {
+    const filteredArtists = artistsArr.filter(
+      (artist) => artist.owner === address
+    );
+    setArtistProfile(filteredArtists[0]);
+  });
 
   return (
     <ScrollView
@@ -26,7 +47,7 @@ const ArtistProfile = () => {
     >
       <ImageBackground
         source={{
-          uri: "https://images.pexels.com/photos/19230155/pexels-photo-19230155/free-photo-of-a-little-boy-with-curly-hair-standing-outside.jpeg?auto=compress&cs=tinysrgb&w=300",
+          uri: artistprofile?.image,
         }}
         className="h-[296px] object-cover"
         imageStyle={{ resizeMode: "cover" }}
@@ -45,10 +66,10 @@ const ArtistProfile = () => {
       <View style={{ position: "absolute", top: 135, right: 0, left: 0 }}>
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 40, fontWeight: "bold", color: "#fff" }}>
-            Davido
+            {artistprofile?.name}
           </Text>
-          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff" }}>
-            {/* {`${address.slice(0, 4)}...${address.slice(-4)}`} */}
+          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#A8A8A8" }}>
+            {`${address.slice(0, 4)}...${address.slice(-4)}`}
           </Text>
 
           <Text style={{ fontSize: 16, fontWeight: "bold", color: "#A8A8A8" }}>

@@ -1,10 +1,12 @@
 import { View, Text, Image, Pressable, Alert } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import * as Clipboard from "expo-clipboard";
 import { TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 import { useAuth } from "../context/AuthContext";
+import { useSafeAreaFrame } from "react-native-safe-area-context";
+import { getAccount } from "@rly-network/mobile-sdk";
 
 const BottomsheetCom = () => {
   const transact = [
@@ -22,6 +24,8 @@ const BottomsheetCom = () => {
     },
   ];
 
+  const [address, setAddress] = useState<string | undefined>("")
+
   const copyToClipboard = async (text: string | undefined) => {
     if (text) {
       await Clipboard.setStringAsync(text);
@@ -29,6 +33,13 @@ const BottomsheetCom = () => {
 
     Alert.alert("Address copied");
   };
+
+  useEffect(() => {
+   const getAddress = async() => {
+    const wallet = await getAccount()
+    setAddress(wallet)
+   }
+  }, [address])
 
   const { session } = useAuth();
 
@@ -46,7 +57,7 @@ const BottomsheetCom = () => {
           className="bg-[#001F3F] flex-row space-x-4 items-center rounded-[40px] mt-2 px-[30px] py-[12px]"
         >
           <Text className="text-[12px] text-[#fff] font-bold">
-            {session?.slice(0, 9)}...{session?.slice(30, 48)}
+            {address?.slice(0, 9)}...{address?.slice(30, 48)}
           </Text>
           <FontAwesome name="copy" size={24} color="#fff" />
         </Pressable>

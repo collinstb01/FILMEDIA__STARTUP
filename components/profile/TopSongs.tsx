@@ -60,7 +60,7 @@ const TopSongs = () => {
         }}
       >
         <View className="flex-col space-y-6 mt-4 w-full overflow-hidden">
-          {songs.slice(0, 3).map((item, index) => (
+          {songs.map((item, index) => (
             <SongsCard key={index} {...item} />
           ))}
         </View>

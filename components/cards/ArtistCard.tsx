@@ -8,16 +8,17 @@ type Props = {
   name: string;
   description: string;
   image: string;
+  owner: string
 };
 
-const ArtistCard = ({ name, description, image }: Props) => {
+const ArtistCard = ({ name, description, image , owner}: Props) => {
   // const [imageURI, tokenName, tokenDescription, category] = useGetArtist(
   //   id,
   //   artistFTAddress
   // );
 
   return (
-    <Link href={{ pathname: `/artist/${1}`, params: { id: 1 } }}>
+    <Link href={{ pathname: `/artist/${owner}`, params: { address: owner } }}>
       <View className="flex-row items-center space-x-3 pb-5">
         <Text className="text-[14px] text-[#fff] font-bold">1</Text>
         <View className="flex-row items-center space-x-8">

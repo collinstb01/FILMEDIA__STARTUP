@@ -20,7 +20,7 @@ const SubscriptionHeatmap = () => {
   ];
 
   return (
-    <View style={{ width: 346,}} className="mx-4">
+    <View style={{ width: 346 }} className="mx-4">
       <Text style={{ fontSize: 14, color: "#A8A8A8", fontWeight: "bold" }}>
         Subscription Heatmap
       </Text>
@@ -29,7 +29,7 @@ const SubscriptionHeatmap = () => {
         <TouchableOpacity
           style={{ flexDirection: "row", gap: 7, marginTop: 9 }}
         >
-          {years.slice(0, 4).map((item, index) => (
+          {years.map((item, index) => (
             <Text
               onPress={() => setIsActive(item)}
               key={index}

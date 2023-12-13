@@ -578,4 +578,53 @@ export const artistsnft = [
       },
     ],
   },
+  {
+    name: "Asake: L2",
+    description:
+      "A passionate artist exploring the intersection of technology and creativity.",
+    image:
+      "https://gateway.pinata.cloud/ipfs/QmcaGQu4tT7Q3JfjdCeqS3y5tNebTafCk1VjygrdaNY8q1",
+    external_url: "https://www.johndoeart.com",
+    attributes: [
+      {
+        level_stage: 3,
+      },
+      {
+        trait_type: "Style",
+        value: "Abstract",
+      },
+      {
+        trait_type: "Medium",
+        value: "Digital",
+      },
+      {
+        trait_type: "Dimensions",
+        value: "2000x2000",
+      },
+    ],
+    properties: {
+      creation_date: "2023-04-15T12:00:00Z",
+      edition: {
+        total: 10,
+        current: 1,
+      },
+      royalties: {
+        artist: 80,
+        platform: 10,
+        community: 10,
+      },
+    },
+    followers: 1800,
+    following: 500,
+    external_links: [
+      {
+        name: "Auction",
+        url: "https://www.auctionplatform.com/artistic-masterpiece-001",
+      },
+      {
+        name: "OpenSea",
+        url: "https://opensea.io/artistic-masterpiece-001",
+      },
+    ],
+  },
 ];

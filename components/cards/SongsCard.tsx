@@ -22,10 +22,10 @@ const SongsCard = ({
   external_url,
   description,
 }: Props) => {
-  const [imageURI, tokenName, tokenDescription, category] = useGetNFTs(
-    tokenId,
-    artistNFTAddress
-  );
+  // const [imageURI, tokenName, tokenDescription, category] = useGetNFTs(
+  //   tokenId,
+  //   artistNFTAddress
+  // );
 
   async function playSound() {
     await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
@@ -45,7 +45,6 @@ const SongsCard = ({
     }
   }
 
-  console.log(imageURI);
   return (
     <View className="flex-row items-center space-x-2 w-full pb-4">
       <Text className="border-y text-[#fff] border-[#fff]">1</Text>

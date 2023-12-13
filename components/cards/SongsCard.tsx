@@ -48,7 +48,7 @@ const SongsCard = ({
   return (
     <View className="flex-row items-center space-x-2 w-full pb-4">
       <Text className="border-y text-[#fff] border-[#fff]">1</Text>
-      <View className="flex-row items-center space-x-[78px]">
+      <View className="flex-row items-center space-x-[78px] justify-between">
         <View className="flex-row items-center space-x-6">
           <Image
             source={{
